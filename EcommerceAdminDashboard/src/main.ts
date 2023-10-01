@@ -12,9 +12,10 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
+import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/labs/VDataTable'
 
 const vuetify = createVuetify({
-  components,
+  components: { ...components, VDataTable, VDataTableServer, VDataTableVirtual },
   directives
 })
 const app = createApp(App)
