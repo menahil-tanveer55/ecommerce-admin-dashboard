@@ -31,7 +31,7 @@
             </v-col>
             <v-col cols="12">
               <v-file-input
-                label="Upload products image"
+                label="Upload product image"
                 v-model="selectedImage"
                 accept="image/*"
                 @change="uploadImage"
