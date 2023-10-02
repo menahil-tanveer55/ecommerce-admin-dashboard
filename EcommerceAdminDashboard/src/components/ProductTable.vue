@@ -1,7 +1,7 @@
 <template>
   <v-card width="98%" class="mx-10 my-10">
     <v-card-title class="">
-      <p class="my-2">List of All Products</p>
+      <p>List of All Products</p>
 
       <v-text-field
         v-model="search"
@@ -15,10 +15,10 @@
         class="float-right w-25"
       ></v-text-field>
     </v-card-title>
-    <v-data-table :headers="HEADERS" :items="items" :search="search" items-per-page="5">
+    <v-data-table :headers="HEADERS" :items="items" :search="search" items-per-page="10">
       <template v-slot:item.status="{ item }">
         <v-chip
-          :color="item.status === 'available' ? 'teal' : 'red'"
+          :color="item.stockLevel > 0 ? 'teal' : 'red'"
           variant="tonal"
           label
           compact
@@ -26,7 +26,7 @@
           :rounded="false"
           size="small"
         >
-          {{ item.status }}
+          {{ item.stockLevel > 0 ? 'available' : 'unavailable' }}
         </v-chip>
       </template>
     </v-data-table>

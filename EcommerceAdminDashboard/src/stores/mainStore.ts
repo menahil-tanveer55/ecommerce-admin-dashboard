@@ -23,8 +23,12 @@ export const useMainStore = defineStore({
     getAllProducts: (state) => state.allProducts
   },
   actions: {
+    setCurrentTab(tab: string) {
+      this.currentTab = tab
+    },
     addProduct(product: IProduct) {
       this.allProducts.unshift(product)
     }
-  }
+  },
+  persist: true
 })

@@ -27,6 +27,7 @@
 <script lang="ts" setup>
 // Imports
 import router from '@/router'
+import { useMainStore } from '@/stores/mainStore'
 import { ref } from 'vue'
 // Local Interfaces
 interface ITab {
@@ -34,9 +35,12 @@ interface ITab {
   title: string
   value: string
 }
+// Store
+const mainStore = useMainStore()
+// States
 const drawer = ref<boolean>(true)
-const activeTab = ref<string>('overview')
-
+const activeTab = ref<string>(mainStore.getCurrentTab)
+// Constants
 const TABS: ITab[] = [
   {
     icon: 'mdi-view-dashboard-outline',
@@ -49,8 +53,10 @@ const TABS: ITab[] = [
     value: 'inventory'
   }
 ]
+// Methods
 const selectTab = (tab: ITab) => {
   activeTab.value = tab.value
+  mainStore.setCurrentTab(tab.value)
   router.push({ name: tab.title })
 }
 </script>
