@@ -1,5 +1,5 @@
 <template>
-  <v-card width="98%" class="mx-10 my-10">
+  <v-card width="98%" class="mx-10 my-10" :elevation="0">
     <v-card-title class="">
       <p>List of All Products</p>
 
